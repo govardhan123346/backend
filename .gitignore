@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+
+# Environment variables (VERY IMPORTANT)
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+
+# Runtime data
+pids/
+*.pid
+*.pid.lock
+
+# Coverage
+coverage/
+
+# Cache
+.cache/
+.nyc_output/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.sw?
+
+# Temporary files
+tmp/
+temp/
+
+# Database files (if using local DB)
+*.sqlite
+*.sqlite3
+*.db
+
+# Uploads (if your app stores files locally)
+uploads/
+public/uploads/
+
+# Secrets / keys
+*.pem
+*.key
+
+# Optional lock files (uncomment if needed)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
