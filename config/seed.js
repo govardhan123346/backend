@@ -6,8 +6,6 @@ dotenv.config();
 const User = require('../models/User');
 const Car = require('../models/Car');
 
-
-
 const cars = [
   {
     name: 'Maruti Swift Dzire',
@@ -16,7 +14,7 @@ const cars = [
     pricePerDay: 1800,
     seats: 5, transmission: 'Manual', fuel: 'Petrol', mileage: 22000,
     description: 'Hyderabad\'s most popular cab car — reliable, fuel-efficient, and easy to park in the city.',
-    image: 'https://www.longdrivecars.com/_next/image?url=https%3A%2F%2Fldcars.blr1.cdn.digitaloceanspaces.com%2Fldcars%2Fimages%2Fduplicate%2F87374275a0dd4506b835cdd2e5c46da5.jpeg&w=640&q=75',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZa0WXBiu8x-AdBQ7b3DY4g95aUyCQCXRYkA&s',
     available: true,
     features: ['AC', 'Bluetooth', 'USB Charging', 'Central Locking']
   },
@@ -27,18 +25,18 @@ const cars = [
     pricePerDay: 2500,
     seats: 7, transmission: 'Automatic', fuel: 'Petrol', mileage: 30000,
     description: '7-seater MPV perfect for family trips to Ramoji Film City or Charminar.',
-    image: 'https://chatgpt.com/backend-api/estuary/content?id=file_00000000486071faa0ae537231392e0e&ts=493108&p=fs&cid=1&sig=d0ebd7d7ae66c7dbdc35034e26c201f88505501b6bcdc5c5b39c436f83cbfd62&v=0',
+    image: 'https://www.team-bhp.com/sites/default/files/styles/check_high_res/public/maruti-ertiga-2nd-gen.jpg',
     available: true,
     features: ['AC', 'Bluetooth', '7 Seats', 'Roof Rails']
   },
   {
-    name: 'Tata Nexon',
-    brand: 'Tata', model: 'Nexon', year: 2023,
+    name: 'Tata Punch',
+    brand: 'Tata', model: 'Punch', year: 2023,
     category: 'SUV',
     pricePerDay: 2300,
     seats: 5, transmission: 'Automatic', fuel: 'Petrol', mileage: 12000,
     description: 'India\'s safest SUV — great for Hyderabad outskirts and highway drives to Vijayawada.',
-    image: 'https://www.longdrivecars.com/_next/image?url=https%3A%2F%2Fldcars.blr1.cdn.digitaloceanspaces.com%2Fldcars%2Fimages%2Fduplicate%2F8362ce14dade42e28bc7feb8d7cf6951.jpeg&w=640&q=75',
+    image: 'https://www.team-bhp.com/sites/default/files/styles/check_extra_large_for_review/public/tata-punch-7.jpg',
     available: true,
     features: ['AC', 'Sunroof', 'Bluetooth', 'Reverse Camera', 'Hill Assist']
   },
@@ -46,10 +44,10 @@ const cars = [
     name: 'Hyundai Creta',
     brand: 'Hyundai', model: 'Creta', year: 2023,
     category: 'SUV',
-    pricePerDay: 2299,
+    pricePerDay: 2800,
     seats: 5, transmission: 'Automatic', fuel: 'Petrol', mileage: 9000,
     description: 'Most loved SUV in Hyderabad — smooth ride, great infotainment, and a premium feel.',
-    image: 'https://images.unsplash.com/photo-1614026480209-cd9934144671?w=800&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/2021_Hyundai_Creta_SX%28O%29_CRDi_%28India%29_front_view.jpg/330px-2021_Hyundai_Creta_SX%28O%29_CRDi_%28India%29_front_view.jpg',
     available: true,
     features: ['AC', 'Sunroof', 'Wireless Charging', 'GPS', 'Lane Assist', 'Cruise Control']
   },
@@ -57,10 +55,10 @@ const cars = [
     name: 'Toyota Innova Crysta',
     brand: 'Toyota', model: 'Innova Crysta', year: 2022,
     category: 'Van',
-    pricePerDay: 2999,
+    pricePerDay: 3500,
     seats: 7, transmission: 'Automatic', fuel: 'Diesel', mileage: 35000,
     description: 'The gold standard for group travel in Hyderabad — book for airport transfers or Tirupati trips.',
-    image: 'https://images.unsplash.com/photo-1623869675781-80aa31012963?w=800&q=80',
+    image: 'https://www.jazzycars.in/wp-content/uploads/2025/08/WhatsApp-Image-2025-09-18-at-12.43.46-PM-3.jpeg',
     available: true,
     features: ['AC', 'Bluetooth', '7 Seats', 'Captain Seats', 'USB Charging']
   },
@@ -68,21 +66,21 @@ const cars = [
     name: 'MG Hector',
     brand: 'MG', model: 'Hector', year: 2023,
     category: 'SUV',
-    pricePerDay: 2799,
+    pricePerDay: 3200,
     seats: 5, transmission: 'Automatic', fuel: 'Petrol', mileage: 7000,
     description: 'Feature-packed internet SUV — panoramic sunroof and 14-inch touchscreen turn heads in Banjara Hills.',
-    image: 'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800&q=80',
+    image: 'https://cargiant.co.in/uploads/car/025051261819.jpeg',
     available: true,
     features: ['AC', 'Panoramic Sunroof', '14" Touchscreen', 'GPS', 'ADAS', 'Wi-Fi Hotspot']
   },
   {
-    name: 'Tata Nexon EV',
+    name: 'Tata Nexon EV Max',
     brand: 'Tata', model: 'Nexon EV Max', year: 2023,
     category: 'SUV',
-    pricePerDay: 2499,
+    pricePerDay: 2999,
     seats: 5, transmission: 'Automatic', fuel: 'Electric', mileage: 4000,
     description: '437 km range — ideal for eco-conscious drives around HITEC City with zero fuel cost.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    image: 'https://imgd.aeplcdn.com/664x374/n/cw/ec/121341/nexon-ev-max-exterior-right-front-three-quarter-61.jpeg?isig=0&q=80',
     available: true,
     features: ['AC', 'Fast Charging', 'Autopark', 'Reverse Camera', 'Digital Cluster', 'Voice Control']
   },
@@ -90,10 +88,10 @@ const cars = [
     name: 'Honda City Hybrid',
     brand: 'Honda', model: 'City Hybrid', year: 2023,
     category: 'Sedan',
-    pricePerDay: 1899,
+    pricePerDay: 2200,
     seats: 5, transmission: 'Automatic', fuel: 'Hybrid', mileage: 14000,
     description: 'Premium hybrid sedan — smooth highway cruiser for Hyderabad to Bangalore runs.',
-    image: 'https://chatgpt.com/s/m_69cf44b1cc4c819185677e47e8b32202',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJgnnXsUt3TywSyJ5PUOVIB90HlPFw24_n_w&s',
     available: true,
     features: ['AC', 'Bluetooth', 'Honda Sensing', 'GPS', 'Sunroof', 'Wireless Charging']
   },
@@ -101,25 +99,26 @@ const cars = [
     name: 'Maruti Alto K10',
     brand: 'Maruti Suzuki', model: 'Alto K10', year: 2023,
     category: 'Economy',
-    pricePerDay: 799,
+    pricePerDay: 899,
     seats: 5, transmission: 'Manual', fuel: 'Petrol', mileage: 18000,
     description: 'Most affordable option — zip through Old City lanes and Charminar traffic with ease.',
-    image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800&q=80',
+    image: 'https://cdn-s3.autocarindia.com/legacy/cdni/ExtraImages/20220824035350__DSC7055.jpg?w=728&q=75',
     available: true,
     features: ['AC', 'Bluetooth', 'USB Charging']
   },
   {
-    name: 'BMW 5 Series',
-    brand: 'BMW', model: '530i', year: 2022,
+    name: 'Mahindra Thar',
+    brand: 'Mahindra', model: 'Thar', year: 2022,
     category: 'Luxury',
-    pricePerDay: 9999,
-    seats: 5, transmission: 'Automatic', fuel: 'Petrol', mileage: 8000,
-    description: 'Luxury executive sedan — make an impression at Jubilee Hills or Hyderabad International Airport.',
-    image: 'https://images.unsplash.com/photo-1555215695-3004980ad54c?w=800&q=80',
+    pricePerDay: 4999,
+    seats: 4, transmission: 'Automatic', fuel: 'Petrol', mileage: 8000,
+    description: 'Iconic 4x4 off-roader — head to Ananthagiri Hills or Bhongir Fort in style from Hyderabad.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG3t0EcVLU_GUIuzEO0nVc96ZwzWIU-IBBDQ&s',
     available: true,
-    features: ['AC', 'Leather Seats', 'Heated Seats', 'GPS', 'Sunroof', 'Ambient Lighting', 'Harman Kardon Audio']
+    features: ['AC', '4x4 Drive', 'Roll Cage', 'GPS', 'Convertible Top', 'Off-road Tyres']
   }
 ];
+
 const seed = async () => {
   await mongoose.connect(process.env.MONGO_URI);
   console.log('Connected to MongoDB');
@@ -133,24 +132,22 @@ const seed = async () => {
     email: 'admin@carrental.com',
     password: hashedPass,
     role: 'admin',
-    phone: '555-0100',
-    address: '123 Admin Street',
+    phone: '9000000000',
+    address: 'HITEC City, Hyderabad',
   });
 
   await User.create({
-    name: 'John Doe',
-    email: 'john@example.com',
+    name: 'Ravi Kumar',
+    email: 'ravi@example.com',
     password: hashedPass,
     role: 'user',
-    phone: '555-0101',
-    address: '456 Main St',
+    phone: '9100000001',
+    address: 'Banjara Hills, Hyderabad',
   });
 
   await Car.insertMany(cars);
 
   console.log('✅ Seed data inserted!');
-  console.log('Admin: admin@carrental.com / admin123');
-  console.log('User:  john@example.com / admin123');
   process.exit(0);
 };
 
