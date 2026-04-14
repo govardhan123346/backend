@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const fs = require('fs');
 const path = require('path');
 
 dotenv.config();
@@ -19,7 +20,16 @@ app.use('/api/cars', require('./routes/carRoutes'));
 app.use('/api/bookings', require('./routes/bookingRoutes'));
 app.use('/api/messages', require('./routes/messageRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
-app.use('/api/payments', require('./routes/paymentRoutes')); 
+app.use('/api/payments', require('./routes/paymentRoutes'));
+
+const reactBuildPath = path.join(__dirname, '../frontend/build');
+if (fs.existsSync(reactBuildPath)) {
+  app.use(express.static(reactBuildPath));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(reactBuildPath, 'index.html'));
+  });
+}
 
 // Connect DB & Start Server
 mongoose

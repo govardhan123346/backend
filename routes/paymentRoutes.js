@@ -13,6 +13,10 @@ const razorpay = new Razorpay({
 // POST /api/payments/create-order
 router.post('/create-order', protect, async (req, res) => {
   try {
+    if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+      return res.status(500).json({ message: 'Razorpay credentials are not configured' });
+    }
+
     const { bookingId } = req.body;
     const booking = await Booking.findById(bookingId);
     if (!booking) return res.status(404).json({ message: 'Booking not found' });
